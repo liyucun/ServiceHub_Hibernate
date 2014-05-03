@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 26, 2014 4:39:37 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="model.Users" table="users" catalog="servicediscovery">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="fkRoleId" type="int">
+            <column name="FK_ROLE_ID" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" length="50" not-null="true" />
+        </property>
+        <property name="family" type="string">
+            <column name="FAMILY" length="50" not-null="true" />
+        </property>
+        <property name="companyName" type="string">
+            <column name="COMPANY_NAME" length="75" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="70" not-null="true" />
+        </property>
+        <property name="website" type="string">
+            <column name="WEBSITE" length="70" not-null="true" />
+        </property>
+        <property name="logoUrl" type="string">
+            <column name="LOGO_URL" length="150" not-null="true" />
+        </property>
+        <property name="registeredDate" type="timestamp">
+            <column name="REGISTERED_DATE" length="19" not-null="true" />
+        </property>
+        <property name="status" type="int">
+            <column name="STATUS" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="50" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

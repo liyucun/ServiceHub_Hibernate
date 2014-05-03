@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 26, 2014 4:39:37 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="model.Wsdl" table="wsdl" catalog="servicediscovery">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="fkOwnerId" type="int">
+            <column name="FK_OWNER_ID" not-null="true" />
+        </property>
+        <property name="price" type="double">
+            <column name="PRICE" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="url" type="string">
+            <column name="URL" length="250" not-null="true" />
+        </property>
+        <property name="subject" type="string">
+            <column name="SUBJECT" length="250" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="1000" not-null="true" />
+        </property>
+        <property name="fkTechniquesId" type="int">
+            <column name="FK_TECHNIQUES_ID" not-null="true" />
+        </property>
+        <property name="status" type="int">
+            <column name="STATUS" not-null="true" />
+        </property>
+        <property name="fkCategoryId" type="int">
+            <column name="FK_CATEGORY_ID" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
