@@ -132,7 +132,7 @@
 
                         <p>This project was started in 2014,<br> 
 
-                            Web UI : Yucun Li; Touraj Laleh <br>
+                            Web UI : Yucun Li<br>
 
                             Database design : Hamed Mortazavi<br>
 
