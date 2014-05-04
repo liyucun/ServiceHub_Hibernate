@@ -23,7 +23,7 @@ public class WSDLDAO {
     }
      
       public void wsdl_create(Wsdl wsdl){
-          String sql =  "INSERT INTO `servicediscovery`.`wsdl` (`fk_owner_id`, `fk_category_id`, `price`, `URL`, `fk_techniques_id`, `subject`, `description`) "
+          String sql =  "INSERT INTO `wsdl` (`fk_owner_id`, `fk_category_id`, `price`, `URL`, `fk_techniques_id`, `subject`, `description`) "
                     + " VALUES (? , ? , ? , ? , ? , ? , ? )"; 
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -49,7 +49,7 @@ public class WSDLDAO {
       }
       
       public void wsdl_updata(Wsdl wsdl){
-          String sql = "UPDATE servicediscovery.wsdl SET price = ?, url = ?, subject = ?, description = ?, fk_techniques_id = ?, fk_category_id = ? WHERE id = ?";
+          String sql = "UPDATE wsdl SET price = ?, url = ?, subject = ?, description = ?, fk_techniques_id = ?, fk_category_id = ? WHERE id = ?";
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
@@ -73,7 +73,7 @@ public class WSDLDAO {
       }
       
        public void wsdl_delete(int wsdl_id){
-           String sql ="DELETE FROM `servicediscovery`.`wsdl`"
+           String sql ="DELETE FROM `wsdl`"
                                 + " WHERE  wsdl.id = ?";
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
