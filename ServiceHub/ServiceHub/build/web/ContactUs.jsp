@@ -14,8 +14,30 @@
         <link href="./css/bootstrap.min.css" rel="stylesheet"/>
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script> 
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCAf6ZHyOKmRGhcXqBvwi4Ku34jGzz9OmY&sensor=true">
+        </script>
+        <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          
+          center: new google.maps.LatLng(45.497052, -73.578927),
+          zoom: 18,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+        var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(45.497052, -73.578927),
+        map: map,
+        title: 'Click me'
+        });
+
+       
+      }
+    </script>
+
     </head>
-    <body>
+    <body onload="initialize()">
         <div>
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="container">
@@ -135,10 +157,12 @@
                             Tel: (514) 848-2424 ext 8715<br>
                             Fax: (514) 848-2830<br>
                             Email: yuhong@cse.concordia.ca</p>
+                        <div id="map_canvas" style="width:500px; height:200px"></div>
                     </div>
                 </div>
             </div>
         </div>
+
 
     </body>
 </html>

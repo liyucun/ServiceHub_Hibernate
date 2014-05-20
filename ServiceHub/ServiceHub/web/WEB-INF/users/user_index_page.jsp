@@ -83,7 +83,7 @@
                             <c:forEach var="indexview_item" items="${query_result.getPageData()}" varStatus="index" >
                                 <% Wsdl wsdl = (Wsdl) pageContext.getAttribute("indexview_item");
                                     String wsdl_id = Integer.toString(wsdl.getId());
-                                    String wsdl_data = wsdl_id+"###"+wsdl.getPrice()+"###"+wsdl.getUrl()+"###"+wsdl.getSubject()+"###"+wsdl.getDescription()+"###"+wsdl.getTechniqueName()+"###"+wsdl.getCategoryName();
+                                    String wsdl_data = wsdl_id+"###"+wsdl.getPrice()+"###"+wsdl.getUrl()+"###"+wsdl.getSubject()+"###"+wsdl.getDescription()+"###"+wsdl.getTechniqueName()+"###"+wsdl.getFkCategoryId();
                                 %>
                                 <tr>
                                     <td><c:out value="${indexview_item.getUserName()}" /></td>

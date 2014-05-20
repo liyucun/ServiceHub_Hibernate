@@ -97,11 +97,11 @@ public class WSDLDAO {
         int data_per_page = 10;
         List<Object[]> result = null;
         String sql = "";
-        String admin_sql = "SELECT wsdl.ID, users.NAME, wsdl.PRICE, wsdl.URL, wsdl.SUBJECT, wsdl.DESCRIPTION, techniques.NAME, wsdl.STATUS, category.NAME "
+        String admin_sql = "SELECT wsdl.ID, users.NAME, wsdl.PRICE, wsdl.URL, wsdl.SUBJECT, wsdl.DESCRIPTION, techniques.NAME, wsdl.STATUS, category.NAME, category.ID "
                     + " FROM wsdl, techniques, category, users "
                     + " WHERE (wsdl.FK_OWNER_ID = users.ID AND wsdl.FK_TECHNIQUES_ID = techniques.id AND wsdl.FK_CATEGORY_ID = category.ID) ORDER BY wsdl.id DESC LIMIT ?, ?";
         
-        String user_sql = "SELECT wsdl.ID, users.NAME, wsdl.PRICE, wsdl.URL, wsdl.SUBJECT, wsdl.DESCRIPTION, techniques.NAME, wsdl.STATUS, category.NAME "
+        String user_sql = "SELECT wsdl.ID, users.NAME, wsdl.PRICE, wsdl.URL, wsdl.SUBJECT, wsdl.DESCRIPTION, techniques.NAME, wsdl.STATUS, category.NAME, category.ID "
                     + " FROM wsdl, techniques, category, users "
                     + " WHERE (wsdl.FK_OWNER_ID = users.ID AND ? = wsdl.FK_OWNER_ID AND wsdl.FK_TECHNIQUES_ID = techniques.id AND wsdl.FK_CATEGORY_ID = category.ID) ORDER BY wsdl.id DESC LIMIT ?, ?";
                                         // id setParameter need change
@@ -124,6 +124,7 @@ public class WSDLDAO {
             query.addScalar("techniques.NAME", Hibernate.STRING);
             query.addScalar("wsdl.STATUS", Hibernate.INTEGER);
             query.addScalar("category.NAME", Hibernate.STRING);
+            query.addScalar("category.ID", Hibernate.INTEGER);
             if(role_id == 1){
                  query.setParameter(0, (cur - 1) * data_per_page);
                  query.setParameter(1, data_per_page);
@@ -153,6 +154,7 @@ public class WSDLDAO {
                 String technique_name = (String) record[6];
                 int status = (Integer) record[7];
                 String category_name = (String) record[8];
+                int category_id = (Integer) record[9];
 
                 Techniques tech_transfer = new Techniques();
                 Wsdl wsdl = new Wsdl();
@@ -165,6 +167,7 @@ public class WSDLDAO {
                wsdl.setTechniqueName(technique_name);
                wsdl.setStatus(status);
                wsdl.setCategoryName(category_name);
+               wsdl.setFkCategoryId(category_id);
                 PageData.add(wsdl);
             }
          }

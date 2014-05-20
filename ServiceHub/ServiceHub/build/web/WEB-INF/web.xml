@@ -32,6 +32,10 @@
         <filter-name>LoginFilter</filter-name>
         <url-pattern>/UserEdit</url-pattern>
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/category</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>test</servlet-name>
         <servlet-class>action.test</servlet-class>
@@ -79,6 +83,10 @@
     <servlet>
         <servlet-name>UserEdit</servlet-name>
         <servlet-class>action.UserEdit</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>category</servlet-name>
+        <servlet-class>action.category</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>test</servlet-name>
@@ -128,6 +136,10 @@
     <servlet-mapping>
         <servlet-name>UserEdit</servlet-name>
         <url-pattern>/UserEdit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>category</servlet-name>
+        <url-pattern>/category</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

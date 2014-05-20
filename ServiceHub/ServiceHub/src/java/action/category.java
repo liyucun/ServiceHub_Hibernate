@@ -1,49 +1,44 @@
 package action;
 
-import dao.WSDLDAO;
+import dao.CategoryDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Wsdl;
+import model.Category;
 
 /**
  *
  * @author Yucun
  */
-public class UserAdd extends HttpServlet {
+public class category extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       HttpSession session = request.getSession();
-        int user_id = (Integer) session.getAttribute("user_id");
-        
-        Double price = Double.parseDouble(request.getParameter("price"));
-        String url = request.getParameter("url");
-        String subject = request.getParameter("subject");
-        String description = request.getParameter("description");
-        int fk_techniques_id = Integer.parseInt(request.getParameter("technique"));
-        int fk_category_id = Integer.parseInt(request.getParameter("category"));
-       
-        Wsdl wsdl = new Wsdl();
-        wsdl.setFkOwnerId(user_id);
-        wsdl.setPrice(price);
-        wsdl.setUrl(url);
-        wsdl.setSubject(subject);
-        wsdl.setDescription(description);
-       wsdl.setFkTechniquesId(fk_techniques_id);
-       wsdl.setFkCategoryId(fk_category_id);
-              
-        WSDLDAO add_wsdl = new WSDLDAO();
-        add_wsdl.wsdl_create(wsdl);
-        
-         String address = "UserIndexView"; 
-         RequestDispatcher dispatcher = request.getRequestDispatcher(address);
-         dispatcher.forward(request, response);          
+        String categoryID = (String) request.getParameter("categoryID");    
+        if (categoryID != null){
+            int categoryIDint = Integer.parseInt(categoryID);
+            CategoryDAO categorydao = new CategoryDAO();
+            categorydao.category_search(categoryIDint);
+            ArrayList<Category> category_query_result = categorydao.getCategory_list();
+             if (category_query_result != null){
+                  StringBuffer ReturnString = new StringBuffer();
+                for(int i = 0; i < category_query_result.size(); i++){
+                Category temp = category_query_result.get(i);
+                    ReturnString.append(temp.getId());
+                    ReturnString.append("@");
+                    ReturnString.append(temp.getName());
+                    ReturnString.append("#");
+                }
+                response.setContentType("text/html;charset=UTF-8");
+                PrintWriter out = response.getWriter();
+                out.print(ReturnString.toString());
+                return;
+             }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

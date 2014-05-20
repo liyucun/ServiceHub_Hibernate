@@ -2,7 +2,6 @@ package action;
 
 import dao.CategoryDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,21 +16,8 @@ import model.Category;
  */
 public class UserAddView extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        CategoryDAO category = new CategoryDAO();
-        category.category_read();
-        ArrayList<Category> category_list = category.getCategory_list();
-        request.setAttribute("category_list", category_list);
         
          String address = "WEB-INF/users/User_add_view.jsp"; 
          RequestDispatcher dispatcher = request.getRequestDispatcher(address);
