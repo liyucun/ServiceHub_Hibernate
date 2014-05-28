@@ -65,7 +65,7 @@
 
                     <table class="table table-bordered table-hover">
                         <thead style="background-color:#222; color:white;">
-                            <tr>
+                            <tr align="right">
                                 <th>Owner</th>
                                 <th>Price</th>
                                 <th>WSDL</th>

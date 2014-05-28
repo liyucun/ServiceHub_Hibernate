@@ -48,7 +48,7 @@
                     <p><h4>Create a new WSDL</h4></p>
                     <form action="UserAdd" method="POST" class="form-horizontal">
                         <div class="form-group">
-                            <label for="price" class="col-sm-4 control-label">Email</label>
+                            <label for="price" class="col-sm-4 control-label">Price</label>
                             <div class="col-sm-4">
                                 <input  type="number" name="price" class="form-control" id="price" placeholder="0">
                             </div>

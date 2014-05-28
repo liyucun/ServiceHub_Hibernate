@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/ServiceHub_Hibernate/ServiceHub/ServiceHub/web/ContactUs.jsp</file>
+            <file>file:/D:/ServiceHub_Hibernate/ServiceHub/ServiceHub/web/WEB-INF/users/user_index_page.jsp</file>
+            <file>file:/D:/ServiceHub_Hibernate/ServiceHub/ServiceHub/web/WEB-INF/users/user_index.jsp</file>
+            <file>file:/D:/ServiceHub_Hibernate/ServiceHub/ServiceHub/web/search_result.jsp</file>
+            <file>file:/D:/ServiceHub_Hibernate/ServiceHub/ServiceHub/web/index.jsp</file>
         </group>
     </open-files>
 </project-private>
